@@ -9,12 +9,9 @@ function firstStableIndex(nums: number[], k: number): number {
         let min = Math.min(...arr2);
         let res = max - min;
 
-        arr2.shift();
-        arr3.push(res);
-    }
+        if(res <= k) return i;
 
-    for(let i = 0; i < arr3.length; i++){
-        if(arr3[i] ?? 0 <= k) return i;
+        arr2.shift();
     }
 
     return -1;
